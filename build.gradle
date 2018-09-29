@@ -31,11 +31,14 @@ dependencies {
     testCompile 'junit:junit:3.8.2'
 }
 */
-
 plugins {
     id 'war'
     id 'org.gretty' version '2.2.0'
+    id 'groovy'
 }
+
+apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
 
 repositories {
     jcenter()
@@ -51,4 +54,9 @@ dependencies {
     testCompile 'org.mockito:mockito-core:2.7.19'
     testCompile 'io.github.bonigarcia:webdrivermanager:1.6.1'
     testCompile 'org.seleniumhq.selenium:selenium-java:3.3.1'
+
+    compile 'org.freemarker:freemarker:2.3.26-incubating'
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4') {
+        exclude group: 'org.codehaus.groovy'
+    }
 }
